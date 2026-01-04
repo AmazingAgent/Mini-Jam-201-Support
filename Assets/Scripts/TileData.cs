@@ -22,6 +22,10 @@ public class TileData : MonoBehaviour
         tower = newTower;
     }
 
+    public GameObject GetTowerData()
+    {
+        return tower;
+    }
     public void RemoveTower()
     {
         Debug.Log("destroyed tower");

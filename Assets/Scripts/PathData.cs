@@ -35,4 +35,11 @@ public class PathData : MonoBehaviour
 
     }
 
+    public Vector3 GetNext(float step)
+    {
+        step = Mathf.Clamp(step, 0, pathLength - stepSize);
+        int index = (int)Mathf.Floor(step / 100); // get the index
+        return pathBlocks[index].transform.position;
+    }
+
 }

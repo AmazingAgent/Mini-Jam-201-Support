@@ -16,9 +16,15 @@ public class PlaceTower : MonoBehaviour
 
     [SerializeField] private GameObject towerParent;
 
+
     [SerializeField] private bool gameActive = false;
     [SerializeField] private TowerData towerData;
     [SerializeField] private EnemyData enemyData;
+
+    [SerializeField] private GameObject tileSelector;
+    [SerializeField] private PedestalSelector pedestalSelector;
+    [SerializeField] private GameObject pedestalParent;
+    [SerializeField] private GameObject emptyTower;
     void Start()
     {
         currentTower = Instantiate(towers[towerID]);
@@ -50,9 +56,12 @@ public class PlaceTower : MonoBehaviour
             }
         }
 
+        
+
         // Game is not running
         if (!gameActive)
         {
+            /*
             if (Input.mouseScrollDelta.y > 0)
             {
                 Destroy(currentTower);
@@ -73,15 +82,17 @@ public class PlaceTower : MonoBehaviour
                 }
                 currentTower = Instantiate(towers[towerID]);
             }
+            */
 
             RaycastToGrid();
             currentTower.transform.position = currentPosition;
 
             if (onTile)
             {
-                if (Input.GetMouseButtonDown(0) && tileFree)
+                if (Input.GetMouseButtonDown(0) && tileFree && currentTower.GetComponent<TowerAI>() != null)
                 {
                     PlaceDownTower();
+                    pedestalSelector.RemoveTower();
                 }
                 if (Input.GetMouseButtonDown(1) && !tileFree)
                 {
@@ -89,7 +100,14 @@ public class PlaceTower : MonoBehaviour
                 }
             }
         }
-        // ===============================
+        else
+        {
+            currentTower.transform.position = new Vector3(0, -100f, 0);
+        }
+            // ===============================
+
+
+            UpdateSelector();
     }
 
     private void RaycastToGrid()
@@ -130,7 +148,46 @@ public class PlaceTower : MonoBehaviour
 
     public void DestroyTower()
     {
+        GameObject tempTower = Instantiate(currentTile.GetComponent<TileData>().GetTowerData());
+        tempTower.transform.parent = pedestalParent.transform;
         currentTile.GetComponent<TileData>().RemoveTower();
+    }
+
+
+    private void UpdateSelector()
+    {
+        int layer_mask = LayerMask.GetMask("Placeable");
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        GameObject selectedTile = null;
+        Vector3 selectedPosition = new Vector3(0, -100f, 0);
+
+        if (Physics.Raycast(ray, out hit, 100f, layer_mask))
+        {
+            selectedTile = hit.collider.gameObject;
+            selectedPosition = selectedTile.transform.position;
+        }
+
+        tileSelector.transform.position = selectedPosition;
+    }
+
+    public void ChangeTower(GameObject newTower)
+    {
+        //Debug.Log("change tower");
+        Destroy(currentTower);
+        if (newTower != null)
+        {
+            currentTower = Instantiate(newTower);
+            currentTower.name = newTower.name;
+            currentTower.GetComponent<TowerAI>().enabled = true;
+            currentTower.GetComponent<TowerAI>().ShowRange();
+            currentTower.GetComponent<Attack>().enabled = true;
+        }
+        else
+        {
+            currentTower = Instantiate(emptyTower);
+        }
     }
 
 }

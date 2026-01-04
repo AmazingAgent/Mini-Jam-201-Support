@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float startHealth = 1f;
-    [SerializeField] private float health;
+    [SerializeField] public float health;
     public bool active = false;
     
     
@@ -64,7 +64,14 @@ public class EnemyAI : MonoBehaviour
     {
         step += Time.deltaTime * walkSpeed * slowAmount;
         transform.position = pathData.GetPos(step);
+        LookNext();
     }
+
+    private void LookNext()
+    {
+        transform.LookAt(pathData.GetNext(step));
+    }
+
 
     public float GetStep()
     {

@@ -48,7 +48,7 @@ public class Attack : MonoBehaviour
 
     private void SlowAttack(GameObject enemy)
     {
-        enemy.GetComponent<EnemyAI>().Slow(2.0f, 0.25f);
+        enemy.GetComponent<EnemyAI>().Slow(2.0f, 0.125f);
     }
 
     private void BoomAttack(GameObject enemy)
