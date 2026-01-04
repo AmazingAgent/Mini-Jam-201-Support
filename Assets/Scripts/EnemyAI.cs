@@ -24,6 +24,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         ResetEnemy();
+        pathData = GameObject.Find("PathController").GetComponent<PathData>();
     }
 
     // Update is called once per frame
