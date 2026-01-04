@@ -7,8 +7,8 @@ using UnityEngine.Rendering;
 public class TowerAI : MonoBehaviour
 {
     [SerializeField] private float attackRange = 2f;
-    [SerializeField] private float startAttackCooldown = 1f;
-    [SerializeField] private float attackCooldown;
+    [SerializeField] public float startAttackCooldown = 1f;
+    [SerializeField] public float attackCooldown;
     [SerializeField] public bool active = true;
     [SerializeField] private Attack attack;
     [SerializeField] private bool aoeAttack = false;
