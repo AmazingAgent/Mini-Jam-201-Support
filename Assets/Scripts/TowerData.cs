@@ -24,8 +24,10 @@ public class TowerData : MonoBehaviour
         GetAllTowers();
         foreach (TowerDataType tower in towers)
         {
-            tower.towerObject.SetActive(false);
-            tower.towerObject.transform.position = new Vector3(1000f, 0, 0);
+            tower.towerObject.GetComponent<TowerAI>().ResetTower();
+            tower.towerObject.GetComponent<TowerAI>().ShowRange();
+            //tower.towerObject.SetActive(false);
+            //tower.towerObject.transform.position = new Vector3(1000f, 0, 0);
         }
     }
 
@@ -35,7 +37,8 @@ public class TowerData : MonoBehaviour
         foreach (TowerDataType tower in towers)
         {
             tower.towerObject.GetComponent<TowerAI>().ResetTower();
-            tower.towerObject.SetActive(true);
+            tower.towerObject.GetComponent<TowerAI>().HideRange();
+            //tower.towerObject.SetActive(true);
         }
     }
     private void GetAllTowers()

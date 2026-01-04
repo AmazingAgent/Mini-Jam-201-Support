@@ -9,7 +9,7 @@ public class TowerAI : MonoBehaviour
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private float startAttackCooldown = 1f;
     [SerializeField] private float attackCooldown;
-    [SerializeField] private bool active = true;
+    [SerializeField] public bool active = true;
     [SerializeField] private Attack attack;
     [SerializeField] private bool aoeAttack = false;
 
@@ -21,6 +21,9 @@ public class TowerAI : MonoBehaviour
     public Material deactivatedMat;
     private Material startMaterial;
 
+
+    [SerializeField] private GameObject rangeObject;
+    [SerializeField] private GameObject lookObject;
 
     void Start()
     {
@@ -76,7 +79,10 @@ public class TowerAI : MonoBehaviour
 
     private void LookAtEnemy()
     {
-        transform.LookAt(firstEnemy.transform.position);
+        if (lookObject != null)
+        {
+            lookObject.transform.LookAt(firstEnemy.transform.position + new Vector3(0, 1, 0));
+        }
     }
 
     private void TryAttack()
@@ -108,7 +114,18 @@ public class TowerAI : MonoBehaviour
     private void DeactivateTower()
     {
         active = false;
-        GetComponentInChildren<MeshRenderer>().material = deactivatedMat;
+        //GetComponentInChildren<MeshRenderer>().material = deactivatedMat;
+    }
+
+
+    public void HideRange()
+    {
+        rangeObject.SetActive(false);
+    }
+
+    public void ShowRange()
+    {
+        rangeObject.SetActive(true);
     }
 
 }

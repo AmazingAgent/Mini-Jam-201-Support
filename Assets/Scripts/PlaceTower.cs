@@ -41,7 +41,7 @@ public class PlaceTower : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && gameActive)
             {
-                towerData.ActivateAllTowers();
+                towerData.DeactivateAllTowers();
                 enemyData.DeactivateAllEnemies();
                 gameActive = false;
 
