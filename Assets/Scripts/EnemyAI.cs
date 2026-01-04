@@ -19,12 +19,16 @@ public class EnemyAI : MonoBehaviour
     
 
     [SerializeField] private PathData pathData;
+    [SerializeField] private EnemyData enemyData;
+
+    public bool magnetic = false;
     
 
     void Start()
     {
         ResetEnemy();
         pathData = GameObject.Find("PathController").GetComponent<PathData>();
+        enemyData = GameObject.Find("EnemyController").GetComponent<EnemyData>();
     }
 
     // Update is called once per frame
@@ -95,6 +99,7 @@ public class EnemyAI : MonoBehaviour
     private void KillEnemy()
     {
         active = false;
+        enemyData.enemiesLeft -= 1;
         gameObject.SetActive(false);
     }
 
@@ -106,6 +111,10 @@ public class EnemyAI : MonoBehaviour
         {
             KillEnemy();
         }
+    }
+    public void SetHP(float newhp) // Damage the enemy
+    {
+        health = newhp;
     }
 
     public void Freeze(float time)

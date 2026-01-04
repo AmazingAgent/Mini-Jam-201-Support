@@ -55,6 +55,7 @@ MonoBehaviour:
   slowTimer: 0
   slowAmount: 1
   pathData: {fileID: 0}
+  magnetic: 1
 --- !u!1 &8463458432224016312
 GameObject:
   m_ObjectHideFlags: 0

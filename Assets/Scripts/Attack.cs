@@ -36,6 +36,9 @@ public class Attack : MonoBehaviour
             case "boom":
                 BoomAttack(enemy);
                 break;
+            case "magnet":
+                MagnetAttack(enemy);
+                break;
             default:
                 break;
         }
@@ -69,5 +72,15 @@ public class Attack : MonoBehaviour
     private void BoomAttack(GameObject enemy)
     {
         enemy.GetComponent<EnemyAI>().Damage(2f);
+    }
+
+    private void MagnetAttack(GameObject enemy)
+    {
+        enemy.GetComponent<EnemyAI>().SetHP(1);
+        GameObject newProjectile = Instantiate(projectiles[0]);
+        projectileParent = GameObject.Find("Projectiles");
+        newProjectile.transform.parent = projectileParent.transform;
+        newProjectile.transform.position = enemy.transform.position;
+        newProjectile.GetComponent<HelmetProjectile>().targetObject = this.gameObject;
     }
 }

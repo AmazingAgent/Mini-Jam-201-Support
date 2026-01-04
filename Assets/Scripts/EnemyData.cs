@@ -12,11 +12,13 @@ public class EnemyDataType
 public class EnemyData : MonoBehaviour
 {
     [SerializeField] public List<EnemyDataType> enemies = new List<EnemyDataType>();
+    public int enemiesLeft = 0;
 
     void Start()
     {
         GetAllEnemies();
         DeactivateAllEnemies();
+        enemiesLeft = enemies.Count;
     }
 
     void Update()
@@ -31,6 +33,7 @@ public class EnemyData : MonoBehaviour
             enemy.enemyObject.SetActive(false);
             enemy.enemyObject.transform.position = new Vector3(1000f, 0, 0);
         }
+        enemiesLeft = enemies.Count;
     }
 
     public void ActivateAllEnemies()
@@ -40,6 +43,7 @@ public class EnemyData : MonoBehaviour
             enemy.enemyObject.GetComponent<EnemyAI>().ResetEnemy();
             enemy.enemyObject.SetActive(true);
         }
+        enemiesLeft = enemies.Count;
     }
     private void GetAllEnemies()
     {

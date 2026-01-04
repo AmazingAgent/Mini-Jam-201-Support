@@ -52,7 +52,7 @@ public class PlaceTower : MonoBehaviour
                 towerData.DeactivateAllTowers();
                 enemyData.DeactivateAllEnemies();
                 gameActive = false;
-
+                projectileController.GetComponent<CleanupProjectiles>().CleanupAllProjectiles();
 
                 currentTower.SetActive(true);
             }

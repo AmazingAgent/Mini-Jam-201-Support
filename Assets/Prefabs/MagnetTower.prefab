@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2350316498662339672
+--- !u!1 &1377418615098320885
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4510055057421467426}
-  - component: {fileID: 4558425245720974552}
-  - component: {fileID: 844842992045646851}
+  - component: {fileID: 3707057362068711427}
+  - component: {fileID: 6012118089385647515}
+  - component: {fileID: 6535195336730139885}
   m_Layer: 0
-  m_Name: CannonStand
+  m_Name: Magnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4510055057421467426
+--- !u!4 &3707057362068711427
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2350316498662339672}
+  m_GameObject: {fileID: 1377418615098320885}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7070969, z: -0, w: 0.7071167}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.000053927295}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 871288760001390335}
+  m_Children: []
   m_Father: {fileID: 9215390361975578911}
-  m_LocalEulerAnglesHint: {x: 0, y: 89.998, z: 0}
---- !u!33 &4558425245720974552
+  m_LocalEulerAnglesHint: {x: 0, y: 179.994, z: 0}
+--- !u!33 &6012118089385647515
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2350316498662339672}
-  m_Mesh: {fileID: -2432090755550338912, guid: 14f437bbde305214093a971e51a4c292, type: 3}
---- !u!23 &844842992045646851
+  m_GameObject: {fileID: 1377418615098320885}
+  m_Mesh: {fileID: -2432090755550338912, guid: 72ea92c029a8e4b429e667357eba54c9, type: 3}
+--- !u!23 &6535195336730139885
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2350316498662339672}
+  m_GameObject: {fileID: 1377418615098320885}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -181,110 +180,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3223707686359735327}
   m_Mesh: {fileID: -2432090755550338912, guid: afb4dd4ebee17bf4896e2edbe98948ef, type: 3}
---- !u!1 &3930708178858120606
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 871288760001390335}
-  - component: {fileID: 2270156844008895124}
-  - component: {fileID: 1744727611193590499}
-  - component: {fileID: 2389553584461293104}
-  m_Layer: 0
-  m_Name: Cannon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &871288760001390335
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930708178858120606}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4510055057421467426}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!33 &2270156844008895124
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930708178858120606}
-  m_Mesh: {fileID: -2432090755550338912, guid: baf020d79832f8441b3edca2d014d793, type: 3}
---- !u!23 &1744727611193590499
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930708178858120606}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -8469494145858465668, guid: bba52272ffd50a145b37c8b23d44e4cc, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2389553584461293104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930708178858120606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97378a4f27b881943abd7da4f3cd98ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicTower
-  towerAI: {fileID: 1404463431709420137}
 --- !u!1 &7525360749503974911
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +192,7 @@ GameObject:
   - component: {fileID: 1404463431709420137}
   - component: {fileID: 2969061492324250002}
   m_Layer: 0
-  m_Name: SlowTower
+  m_Name: MagnetTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,7 +211,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4510055057421467426}
+  - {fileID: 3707057362068711427}
   - {fileID: 2318521181950501514}
   - {fileID: 6382086269711700027}
   - {fileID: 7988813676765565003}
@@ -340,7 +235,7 @@ MonoBehaviour:
   active: 1
   attack: {fileID: 2969061492324250002}
   aoeAttack: 0
-  magnetAttack: 0
+  magnetAttack: 1
   firstEnemy: {fileID: 0}
   enemyData: {fileID: 0}
   deactivatedMat: {fileID: 2100000, guid: 329798768f989e749ae5b1a223179c63, type: 2}
@@ -358,10 +253,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9a5586692c5be4ab18458f2f2e45d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
-  attackType: slow
+  attackType: magnet
   projectileParent: {fileID: 0}
   projectiles:
-  - {fileID: 5175464763466257117, guid: 95c2e25bb6edda441a9cf22b38571db3, type: 3}
+  - {fileID: 5175464763466257117, guid: 370a7651060bbfb4f8afa2e77b67f814, type: 3}
 --- !u!1 &8355958932719853357
 GameObject:
   m_ObjectHideFlags: 0

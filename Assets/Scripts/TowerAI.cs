@@ -12,6 +12,7 @@ public class TowerAI : MonoBehaviour
     [SerializeField] public bool active = true;
     [SerializeField] private Attack attack;
     [SerializeField] private bool aoeAttack = false;
+    [SerializeField] private bool magnetAttack = false;
 
     private List<EnemyDataType> enemies = new List<EnemyDataType>();
     private List<EnemyDataType> enemiesInRange = new List<EnemyDataType>();
@@ -61,7 +62,18 @@ public class TowerAI : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, enemy.enemyObject.transform.position) < attackRange && enemy.enemyObject.GetComponent<EnemyAI>().active)
                 {
-                    enemiesInRange.Add(enemy);
+                    if (magnetAttack) // look for magentic only
+                    {
+                        if (enemy.enemyObject.GetComponent<EnemyAI>().magnetic && enemy.enemyObject.GetComponent<EnemyAI>().health > 1)
+                        {
+                            enemiesInRange.Add(enemy);
+                        }
+                    }
+                    else
+                    {
+                        enemiesInRange.Add(enemy);
+                    }
+                        
                 }
             }
         }
