@@ -1,12 +1,17 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
+
 
 public class Attack : MonoBehaviour
 {
     [SerializeField] private string attackType = "";
+    [SerializeField] private GameObject projectileParent;
 
+    public List<GameObject> projectiles = new List<GameObject>();
     void Start()
     {
-        
+        projectileParent = GameObject.Find("Projectiles");
     }
 
     // Update is called once per frame
@@ -38,7 +43,12 @@ public class Attack : MonoBehaviour
 
     private void BasicAttack(GameObject enemy)
     {
-        enemy.GetComponent<EnemyAI>().Damage(1f);
+        GameObject newProjectile = Instantiate(projectiles[0]);
+        projectileParent = GameObject.Find("Projectiles");
+        newProjectile.transform.parent = projectileParent.transform;
+        newProjectile.transform.position = transform.position;
+        newProjectile.GetComponent<Cannonball>().targetObject = enemy;
+        //enemy.GetComponent<EnemyAI>().Damage(1f);
     }
 
     private void FreezeAttack(GameObject enemy)
@@ -48,7 +58,12 @@ public class Attack : MonoBehaviour
 
     private void SlowAttack(GameObject enemy)
     {
-        enemy.GetComponent<EnemyAI>().Slow(2.0f, 0.125f);
+        GameObject newProjectile = Instantiate(projectiles[0]);
+        projectileParent = GameObject.Find("Projectiles");
+        newProjectile.transform.parent = projectileParent.transform;
+        newProjectile.transform.position = transform.position;
+        newProjectile.GetComponent<Snowball>().targetObject = enemy;
+        //enemy.GetComponent<EnemyAI>().Slow(2.0f, 0.125f);
     }
 
     private void BoomAttack(GameObject enemy)

@@ -25,6 +25,8 @@ public class PlaceTower : MonoBehaviour
     [SerializeField] private PedestalSelector pedestalSelector;
     [SerializeField] private GameObject pedestalParent;
     [SerializeField] private GameObject emptyTower;
+
+    [SerializeField] private GameObject projectileController;
     void Start()
     {
         currentTower = Instantiate(towers[towerID]);
@@ -108,6 +110,17 @@ public class PlaceTower : MonoBehaviour
 
 
             UpdateSelector();
+    }
+
+
+    public void ResetRound()
+    {
+        towerData.DeactivateAllTowers();
+        enemyData.DeactivateAllEnemies();
+        gameActive = false;
+        projectileController.GetComponent<CleanupProjectiles>().CleanupAllProjectiles();
+
+        currentTower.SetActive(true);
     }
 
     private void RaycastToGrid()

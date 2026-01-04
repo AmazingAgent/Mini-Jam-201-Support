@@ -64,9 +64,19 @@ public class EnemyAI : MonoBehaviour
     {
         step += Time.deltaTime * walkSpeed * slowAmount;
         transform.position = pathData.GetPos(step);
+
+        if (step >= pathData.pathLength - 100f)
+        {
+            RestartRound();
+        }
+
         LookNext();
     }
 
+    private void RestartRound()
+    {
+        GameObject.Find("Player").GetComponent<PlaceTower>().ResetRound();
+    }
     private void LookNext()
     {
         transform.LookAt(pathData.GetNext(step));

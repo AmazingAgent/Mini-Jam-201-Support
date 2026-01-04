@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6965846752352760314}
   - component: {fileID: 2174649741982735791}
   - component: {fileID: 1771444869646752240}
+  - component: {fileID: 1106217494594770295}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -90,6 +91,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1106217494594770295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043778099401035319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97378a4f27b881943abd7da4f3cd98ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BasicTower
+  towerAI: {fileID: 1404463431709420137}
 --- !u!1 &1377418615098320885
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +357,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
   attackType: slow
+  projectileParent: {fileID: 0}
+  projectiles:
+  - {fileID: 5175464763466257117, guid: 95c2e25bb6edda441a9cf22b38571db3, type: 3}
 --- !u!1 &9197821140534714796
 GameObject:
   m_ObjectHideFlags: 0

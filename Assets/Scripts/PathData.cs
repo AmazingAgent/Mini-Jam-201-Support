@@ -5,7 +5,7 @@ public class PathData : MonoBehaviour
 {
     public List<GameObject> pathBlocks = new List<GameObject>();
 
-    [SerializeField] private float pathLength;
+    [SerializeField] public float pathLength;
     private float stepSize = 100f; // The number of units per tile
 
     void Start()
