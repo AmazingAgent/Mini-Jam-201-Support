@@ -16,6 +16,7 @@ public class EnemyData : MonoBehaviour
     void Start()
     {
         GetAllEnemies();
+        DeactivateAllEnemies();
     }
 
     void Update()
@@ -23,6 +24,23 @@ public class EnemyData : MonoBehaviour
 
     }
 
+    public void DeactivateAllEnemies()
+    {
+        foreach (EnemyDataType enemy in enemies)
+        {
+            enemy.enemyObject.SetActive(false);
+            enemy.enemyObject.transform.position = new Vector3(1000f, 0, 0);
+        }
+    }
+
+    public void ActivateAllEnemies()
+    {
+        foreach (EnemyDataType enemy in enemies)
+        {
+            enemy.enemyObject.GetComponent<EnemyAI>().ResetEnemy();
+            enemy.enemyObject.SetActive(true);
+        }
+    }
     private void GetAllEnemies()
     {
         foreach (Transform childTransform in transform)
