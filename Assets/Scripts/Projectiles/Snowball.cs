@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Snowball : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class Snowball : MonoBehaviour
 
     public GameObject targetObject;
 
-
+    private AudioSource audioSource;
     void Start()
     {
         
@@ -20,6 +21,12 @@ public class Snowball : MonoBehaviour
             transform.LookAt(targetObject.transform.position);
             if (Vector3.Distance(transform.position, targetObject.transform.position) < 0.3f)
             {
+                audioSource = GetComponent<AudioSource>();
+                if (audioSource != null)
+                {
+                    audioSource.Play();
+                }
+
                 targetObject.GetComponent<EnemyAI>().Slow(2.0f, 0.125f);
                 Destroy(this.gameObject);
             }

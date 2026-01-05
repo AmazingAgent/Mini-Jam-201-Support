@@ -26,6 +26,8 @@ public class TowerAI : MonoBehaviour
     [SerializeField] private GameObject rangeObject;
     [SerializeField] private GameObject lookObject;
 
+    private AudioSource audioSource;
+
     void Start()
     {
         startMaterial = GetComponentInChildren<MeshRenderer>().material;
@@ -103,6 +105,12 @@ public class TowerAI : MonoBehaviour
 
         if (attackCooldown <= 0) // Do the attack
         {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+
             if (aoeAttack)
             {
                 foreach (EnemyDataType enemy in enemiesInRange)

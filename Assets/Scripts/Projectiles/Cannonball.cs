@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Cannonball : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class Cannonball : MonoBehaviour
 
     public GameObject targetObject;
 
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -20,6 +22,12 @@ public class Cannonball : MonoBehaviour
             transform.LookAt(targetObject.transform.position);
             if (Vector3.Distance(transform.position, targetObject.transform.position) < 0.3f)
             {
+                audioSource = GetComponent<AudioSource>();
+                if (audioSource != null)
+                {
+                    audioSource.Play();
+                }
+
                 targetObject.GetComponent<EnemyAI>().Damage(1);
                 Destroy(this.gameObject);
             }

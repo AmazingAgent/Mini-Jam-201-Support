@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class HelmetProjectile : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class HelmetProjectile : MonoBehaviour
 
     public GameObject targetObject;
 
-
+    private AudioSource audioSource;
 
     void Update()
     {
@@ -16,6 +17,12 @@ public class HelmetProjectile : MonoBehaviour
             transform.LookAt(targetObject.transform.position);
             if (Vector3.Distance(transform.position, targetObject.transform.position) < 0.3f)
             {
+                audioSource = GetComponent<AudioSource>();
+                if (audioSource != null)
+                {
+                    audioSource.Play();
+                }
+
                 transform.position = targetObject.transform.position;
                 targetObject = null;
             }
