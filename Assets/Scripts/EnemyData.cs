@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class EnemyDataType
@@ -23,7 +24,10 @@ public class EnemyData : MonoBehaviour
 
     void Update()
     {
-
+        if (enemiesLeft == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void DeactivateAllEnemies()

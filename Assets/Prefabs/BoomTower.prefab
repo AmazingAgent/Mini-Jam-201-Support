@@ -438,12 +438,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf0c1cd20e18af4db5d2cb4f98064cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerAI
-  attackRange: 1.75
+  attackRange: 1.875
   startAttackCooldown: 3.25
   attackCooldown: 1
   active: 1
   attack: {fileID: 2969061492324250002}
   aoeAttack: 1
+  magnetAttack: 0
   firstEnemy: {fileID: 0}
   enemyData: {fileID: 0}
   deactivatedMat: {fileID: 2100000, guid: 329798768f989e749ae5b1a223179c63, type: 2}

@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerAI
   attackRange: 1.5
-  startAttackCooldown: 1
+  startAttackCooldown: 1.5
   attackCooldown: 1
   active: 1
   attack: {fileID: 2969061492324250002}

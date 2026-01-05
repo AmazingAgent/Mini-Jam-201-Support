@@ -345,7 +345,7 @@ MonoBehaviour:
   enemyData: {fileID: 0}
   deactivatedMat: {fileID: 2100000, guid: 329798768f989e749ae5b1a223179c63, type: 2}
   rangeObject: {fileID: 9197821140534714796}
-  lookObject: {fileID: 0}
+  lookObject: {fileID: 2350316498662339672}
 --- !u!114 &2969061492324250002
 MonoBehaviour:
   m_ObjectHideFlags: 0
