@@ -15,6 +15,8 @@ public class EnemyData : MonoBehaviour
     [SerializeField] public List<EnemyDataType> enemies = new List<EnemyDataType>();
     public int enemiesLeft = 0;
 
+    public TransitionController transitionController;
+
     void Start()
     {
         GetAllEnemies();
@@ -26,7 +28,9 @@ public class EnemyData : MonoBehaviour
     {
         if (enemiesLeft == 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            transitionController.nextSceneID = SceneManager.GetActiveScene().buildIndex + 1;
+            transitionController.closing = true;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

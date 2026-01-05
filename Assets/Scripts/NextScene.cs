@@ -3,12 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour
 {
+    public TransitionController transitionController;
     public int sceneID = 0;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene(sceneID);
+            transitionController.nextSceneID = sceneID;
+            transitionController.closing = true;
+            //SceneManager.LoadScene(sceneID);
         }
     }
 }
